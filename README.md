@@ -12,3 +12,4 @@
 | 반복문   | 최소,최대 | [javascript](https://www.acmicpc.net/source/517641690) | 최소, 최대값 구하기              |
 | 반복문   | 최댓값    | [javascript](https://www.acmicpc.net/source/51764552)  | 최댓값 구하기                    |
 | 반복문   | 평균      | [javascript](https://www.acmicpc.net/source/51765746)  | 최대값을 구해 새로운 평균 구하기 |
+| 반복문   | 덧셈      | [javascript](https://www.acmicpc.net/source/51767033)  | OX중 O만 골라 더하기             |

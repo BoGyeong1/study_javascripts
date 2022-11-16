@@ -6,7 +6,7 @@
 // 프로그래밍순서
 // function 만들기
 function sum(number) {
-  // Enhanced For문으로 누적합 구하기
+  //iterable For문으로 누적합 구하기
   let sum_results = 0;
   for (let numbers of number) {
     sum_results += numbers;

@@ -10,3 +10,21 @@ for (let animal of animals) {
   //string 값을 가지고 있음
   console.log(`${animals}`);
 }
+
+const animals_obj = [
+  { name: "dog", species: "canine" },
+  { name: "cat", species: "feline" },
+  { name: "bird", species: "avian" },
+  { name: "fish", species: "aquatic" },
+  { name: "lizard", species: "reptile" },
+];
+
+for (let animal of animals_obj) {
+  console.log(`${animal["name"]}`, `${animal["species"]}`);
+  console.log();
+}
+
+const cars = ["BMW", "Volvo", "Mini"];
+for (let car of cars) {
+  console.log(`${car}`);
+}

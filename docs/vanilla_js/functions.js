@@ -14,3 +14,37 @@ function sum(item_first, item_second) {
   let sum_function = sum(1, 2); // item_first = 1, item_second = 2
   console.log();
 }
+
+// anonymouse Function
+let calculateSum = function (item_first, item_second) {
+  return item_first + item_second;
+};
+
+{
+  console.log(`${calculateSum(5, 7)}`);
+}
+
+// Arrow Function 제일 많이 쓰는 방법
+let calculateSumSecond = (item_first, item_second) => {
+  return item_first + item_second;
+};
+
+{
+  let result = calculateSumSecond(7, calculateSum);
+  console.log(`${result}`);
+  console.log(`${calculateSumSecond(7, 8)}`);
+}
+
+//rest parameters 주로 array가 들어온다.
+function printRestParams(...args) {
+  let restParam = (arg) => {
+    console.log(`arg : ${arg}`);
+  };
+
+  args.forEach(restParam);
+}
+
+{
+  printRestParams(2, 4, 5);
+  printRestParams(2, 4, 5, 6, 7);
+}

@@ -102,7 +102,7 @@ console.log("--------------------------설문자 선택-------------------------
 // 설문자가 답한 문항과 답항 출력하는 function
 function printAnswer(questions_list, example_list, inputs) {
   for (let i = 0; i < questions_list.length; i++) {
-    문항 출력
+    //문항 출력
     console.log(
       `${questions_list[i]["orders"]}. ${questions_list[i]["questions"]}`
     );
@@ -147,3 +147,5 @@ function printAnswer(questions_list, example_list, inputs) {
 
 // 설문자 선택 문항 답항 출력
 printAnswer(questions_list, example_list, inputs);
+
+console.log("이용해주셔서 감사합니다!");

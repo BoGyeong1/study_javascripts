@@ -1,7 +1,7 @@
 const animals = ["dog", "cat", "bird", "fish", "lizard"]; //for,while문으로 돌릴려면 array타입이어야한다.
 
 //Normal
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < animals.length; i++) {
   console.log(`${animals[i]}`);
 }
 
@@ -33,11 +33,12 @@ cars.forEach((car) => console.log(`${car}`));
 
 // forEach 굉장히 많이 씀
 const array1 = ["a", "b", "c"];
-array1.forEach((element) => console.log(element));
+// i 인덱스
+array1.forEach((element, i) => console.log(element));
 
 //Arrow Function 파라메터가 2개이상일때는 괄호를 꼭 해야함. 리턴하는게 하나면 스코프 안써도 됨
-let arrowFunction = (element) => {
-  console.log(element);
+let arrowFunction = (element, index) => {
+  console.log(`${element}, index ${index}`);
 };
 array1.forEach(arrowFunction);
 

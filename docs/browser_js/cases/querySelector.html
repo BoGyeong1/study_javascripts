@@ -27,6 +27,7 @@
     <a id="google" href="https://www.google.com">Google</a>
     <script>
       // 바디 내 모든 형제 출력
+      // index를 직접을 넣는 것은 좋은 방법이 아니다. 코딩의 유연성을 위해서.
       let bodys = document.querySelectorAll("body > *");
       bodys.forEach((bodys, index) => {
         console.log(bodys);
@@ -35,19 +36,21 @@
       //list 전체
       let queryLists = document.querySelectorAll(".list");
       //List 전체 출력
-      queryLists.forEach((lists, index) => {
-        console.log(lists);
+      queryLists.forEach((list, index) => {
+        console.log(`${index} : ${list.outerHTML}`);
+        // queryLists[0].querySelectorAll(".item"); //밑과 동일한 부분
+        let queryItems = item.querySelectorAll(".item");
+        queryItems.forEach((item, index) => {
+          console.log(`${index} : ${item.outerHTML}`);
+        });
       });
-
-      //list 전체의 item
-      let queryItems = document.querySelectorAll(".item");
 
       //첫번째 list의 item
       console.log("IT 회사종류");
       let queryFirstListItems = queryLists[0].querySelectorAll(".item");
       //첫번째 list의 item 출력
       queryFirstListItems.forEach((item, index) => {
-        console.log(item);
+        console.log(`${index} : ${item}`);
       });
 
       //두번째 list의 item
@@ -55,7 +58,7 @@
       let querySecondListItems = queryLists[1].querySelectorAll(".item");
       //두번째 list의 item출력
       querySecondListItems.forEach((item, index) => {
-        console.log(item);
+        console.log(`${index} : ${item}`);
       });
     </script>
   </body>

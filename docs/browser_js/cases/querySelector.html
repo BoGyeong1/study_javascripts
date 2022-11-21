@@ -28,14 +28,14 @@
     <script>
       // 바디 내 모든 형제 출력
       let bodys = document.querySelectorAll("body > *");
-      bodys.forEach((bodys) => {
+      bodys.forEach((bodys, index) => {
         console.log(bodys);
       });
 
       //list 전체
       let queryLists = document.querySelectorAll(".list");
       //List 전체 출력
-      queryLists.forEach((lists) => {
+      queryLists.forEach((lists, index) => {
         console.log(lists);
       });
 
@@ -46,7 +46,7 @@
       console.log("IT 회사종류");
       let queryFirstListItems = queryLists[0].querySelectorAll(".item");
       //첫번째 list의 item 출력
-      queryFirstListItems.forEach((item) => {
+      queryFirstListItems.forEach((item, index) => {
         console.log(item);
       });
 
@@ -54,7 +54,7 @@
       console.log("과일 종류");
       let querySecondListItems = queryLists[1].querySelectorAll(".item");
       //두번째 list의 item출력
-      querySecondListItems.forEach((item) => {
+      querySecondListItems.forEach((item, index) => {
         console.log(item);
       });
     </script>

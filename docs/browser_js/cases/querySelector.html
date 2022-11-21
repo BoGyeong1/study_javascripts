@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Selectors</h3>
+    <h3 id="selector">selector with id</h3>
+
+    <p id="title">DOM</p>
+    <button id="btn">Click Me</button>
+    <ul class="list">
+      <li class="item">Apple</li>
+      <li class="item">Azue</li>
+      <li class="item">Samsung</li>
+      <li class="item">IBM</li>
+    </ul>
+    <ul class="list">
+      <li class="item">banana</li>
+      <li class="item">berry</li>
+      <li class="item">melon</li>
+    </ul>
+
+    <a id="google" href="https://www.google.com">Google</a>
+    <script>
+      // 바디 내 모든 형제 출력
+      let bodys = document.querySelectorAll("body > *");
+      bodys.forEach((bodys) => {
+        console.log(bodys);
+      });
+
+      //list 전체
+      let queryLists = document.querySelectorAll(".list");
+      //List 전체 출력
+      queryLists.forEach((lists) => {
+        console.log(lists);
+      });
+
+      //list 전체의 item
+      let queryItems = document.querySelectorAll(".item");
+
+      //첫번째 list의 item
+      console.log("IT 회사종류");
+      let queryFirstListItems = queryLists[0].querySelectorAll(".item");
+      //첫번째 list의 item 출력
+      queryFirstListItems.forEach((item) => {
+        console.log(item);
+      });
+
+      //두번째 list의 item
+      console.log("과일 종류");
+      let querySecondListItems = queryLists[1].querySelectorAll(".item");
+      //두번째 list의 item출력
+      querySecondListItems.forEach((item) => {
+        console.log(item);
+      });
+    </script>
+  </body>
+</html>

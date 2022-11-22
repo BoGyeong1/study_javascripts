@@ -15,3 +15,4 @@
 | 반복문   | 덧셈      | [javascript](https://www.acmicpc.net/source/51767033)  | OX중 O만 골라 더하기                    |
 | 배열     | 나머지    | [javascript](https://www.acmicpc.net/source/51837934)  | 42로 나눈 나머지 중 다른 값 개수 구하기 |
 | 반복문   | 구구단    | [javascript](https://www.acmicpc.net/source/51922452)  | 입력받은 값으로 구구단 출력하기         |
+| 반복문   | 총합      | [javascript](https://www.acmicpc.net/source/52002802)  | 영수증 총합이 맞는 지 틀렸는지 출력하기 |

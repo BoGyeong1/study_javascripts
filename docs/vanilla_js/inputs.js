@@ -11,5 +11,3 @@ const filepath =
 let inputs = fs.readFileSync(filepath).toString().trim().split(" ").map(Number);
 
 console.log();
-
-console.log();

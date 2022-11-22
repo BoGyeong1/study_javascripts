@@ -32,28 +32,33 @@ const fs = require("fs");
 
 const filepath =
   process.platform === "linux" ? "/dev/stdin" : "docs/vanilla_js/input.txt";
-let inputs = fs
-  .readFileSync(filepath)
-  .toString()
-  .trim()
-  .split("\n")
-  .map(Number);
+let inputs = fs.readFileSync(filepath).toString().trim().split("\n");
 
 // 변수 지정
-let total = inputs[0];
-let count = inputs[1];
+let total = parseInt(inputs[0]);
+let count = parseInt(inputs[1]);
 let sum = 0;
 
-// 총합
 let receipt = (inputs) => {
-  for (let i = 2; i <= count + 1; ++i) {
+  for (let i = 2; i < count + 2; i++) {
+    // 입력된 수를 다시 쪼개서 배열에 저장
     let newInputs = inputs[i].split(" ").map(Number);
+    // 그 수들로 다시 총합 구하기
     sum += newInputs[0] * newInputs[1];
   }
 };
 
 receipt(inputs);
 
-console.log(total === sum ? "Yes" : " No");
+// 총합을 비교해서 yes, no 출력
+if (total === sum) {
+  console.log("Yes");
+} else {
+  console.log("No");
+}
+
 // -try-on
 // -실패 시 원인 기록
+// count 수를 헷갈려서 디버그 돌려보고 깨달았다...
+// parseInt를 꼭 붙여야하더라..
+//왜인지 삼항연산자로 서술하면 틀렸다고나옴 ;

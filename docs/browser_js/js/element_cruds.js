@@ -25,6 +25,7 @@ const productsData = [
 let queryList = document.querySelector("#list");
 let product = "";
 productsData.forEach((products, index) => {
-  product += `<div id = "list"> ${products["title"]} , ${products["weight"]} </div>`;
+  // 이런식으로 넣으면 id가 결론적으로 4개가 된다. 그래서 안됨..!
+  //product += `<div id = "list"> ${products["title"]} , ${products["weight"]} </div>`;
+  product += `<div id = "item"> ${products["title"]} , ${products["weight"]} </div>`;
 });
-queryList.innerHTML = product;

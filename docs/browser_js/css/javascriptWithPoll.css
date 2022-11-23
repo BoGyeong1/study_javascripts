@@ -1,0 +1,27 @@
+#prevButton {
+  background-color: forestgreen;
+  color: white;
+  width: 70px;
+  height: 40px;
+  border-radius: 15%;
+  border: 0px;
+  font-size: 18px;
+}
+
+#nextButton {
+  background-color: forestgreen;
+  color: white;
+  width: 70px;
+  height: 40px;
+  border-radius: 15%;
+  border: 0px;
+  font-size: 20px;
+}
+
+.questions {
+  font-size: 20px;
+}
+
+.examples {
+  font-size: 18px;
+}

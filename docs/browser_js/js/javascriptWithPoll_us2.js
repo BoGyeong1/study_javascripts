@@ -37,11 +37,11 @@ const answer_list = [
 const questions_answers = [
   { questions_uid: "Q1", answer_uid: "E1" },
   { questions_uid: "Q1", answer_uid: "E2" },
-  { questions_uid: "Q1", answer_uid: "E3" },
+  //   { questions_uid: "Q1", answer_uid: "E3" },
   { questions_uid: "Q2", answer_uid: "E1" },
   { questions_uid: "Q2", answer_uid: "E2" },
   { questions_uid: "Q2", answer_uid: "E3" },
-  { questions_uid: "Q2", answer_uid: "E4" },
+  //   { questions_uid: "Q2", answer_uid: "E4" },
   { questions_uid: "Q3", answer_uid: "E1" },
   { questions_uid: "Q3", answer_uid: "E2" },
   { questions_uid: "Q4", answer_uid: "E1" },
@@ -53,21 +53,18 @@ const questions_answers = [
   { questions_uid: "Q5", answer_uid: "E2" },
   { questions_uid: "Q5", answer_uid: "E3" }
 ];
-
 // 예상 묶음 데이터
 // [
-//  [Q1, E1, E2] -> {questions_uid : Q1, answer_uid : [E1, E2] answer: Q2}
-//  [Q2, E1, E2, E3] -> {questions_uid : Q2, answer_uid : [E1, E2, E3]}
-//  [Q3, E1, E2] -> {questions_uid : Q3, answer_uid : [E1, E2]}
-//  [Q4, E1, E2, E3, E4, E5] -> {questions_uid : Q4, answer_uid : [E1, E2, E3, E4, E5]}
-//  [Q5, E1, E2, E3] -> {questions_uid : Q5, answer_uid : [E1, E2, E3]}
+//  [Q1, E1, E2]      -> {questions_uid:Q1, answer_uids:[E1, E2]}
+//  [Q2, E1, E2, E3]  -> {questions_uid:Q2, answer_uids:[E1, E2, E3]}
+//  [Q3, E1, E2]      -> {questions_uid:Q3, answer_uids:[E1, E2]}
+//  [Q4, E1, E2, E3, E4, E5]  -> {questions_uid:Q4, answer_uids:[E1, E2, E3, E4, E5]}
+//  [Q5, E1, E2, E3]  -> {questions_uid:Q5, answer_uids:[E1, E2, E3]}
 // ]
-
-// 오브젝트로 묶는것이 나을지, 리스트로 묶는게 나을지 고민해본다.
-// 오브젝트로 넣어보기
-// 위의 모양이 제일 좋다.
-
-let polls = []; // 전체묶음
+// 1차 방식 : [Q1, Q2, Q3, Q4, Q5]
+// 2차 방식 : Array in Array [[Q1, E1, E2], [Q2, E1, E2, E3] ...]]
+// 3차 방식 : Object in Array [{questions_uid:Q1, answer_uids:[E1, E2]}, ...]
+let polls = []; // 전체 묶음
 let question_compare;
 let questions = {}; // 내부 묶음
 let answer_uids = []; // 내부 설문 답변 묶음
@@ -94,44 +91,122 @@ for (let idx = 0; idx < questions_answers.length; idx++) {
   }
   question_compare = questions_answers[idx]["questions_uid"]; // 이전 uid 입력
 }
+// console.log(`${polls}`); //
 
-//출력
-//[
-// {questions_uid : Q1 ,answer_uids: [E1,E2] }
-//{questions_uid : Q2 ,answer_uids: [E1,E2, E3] }
-//...]
-// polls[0]["questions_uid"][0];
-// polls[0]["answer_uids"][1];
-// polls[0]["answer_uids"][2];
+// 출력
+// [
+//  {questions_uid:Q1, answer_uids:[E1, E2]},
+//  {questions_uid:Q2, answer_uids:[E1, E2, E3]},
+//  ...]
+// polls[0]['questions_uid']
+// polls[0]['answer_uids'][0]
+// polls[0]['answer_uids'][1]
 
-//설문 문항을 가져오는 function
+// polls[1]['questions_uid']
+// polls[1]['answer_uids'][0]
+// polls[1]['answer_uids'][1]
+// polls[1]['answer_uids'][2]
+
+// 설문 문항을 가져오는 function
+// Q1. 해당 매장을 방문시 매장은 청결 하였습니까?
+// 1. E1
+// 2. E2
+// Q2. 주문시 직원은 고객님께 친절 하였습니까?
+// ...
+
 function getQuestionByUid(question_uid) {
-  let question_desc;
-  questions_list.forEach((question, index) => {
-    if (question_uid == question["questions_uid"]) {
+  // questions_uid = 'Q1'
+  let question_desc = "";
+  for (question of questions_list) {
+    if (question["questions_uid"] === question_uid) {
       question_desc = question["question"];
+      break;
     }
-  });
+  }
   return question_desc;
 }
-// 설문 답항을 가져오는 function
+
 function getAnswerByUid(answer_uid) {
-  let answer_desc;
-  answer_list.forEach((answer, index) => {
-    if (answer_uid == answer["answer_uid"]) {
+  let answer_desc = "";
+  for (answer of answer_list) {
+    if (answer["answer_uid"] === answer_uid) {
       answer_desc = answer["answer"];
+      break;
     }
-  });
+  }
   return answer_desc;
 }
 
-for (let poll of polls) {
-  console.log(
-    `${poll["questions_uid"]}. ${getQuestionByUid(poll["questions_uid"])}`
-  ); // == polls[idx]
+for (poll of polls) {
+  let question_desc = getQuestionByUid(poll["questions_uid"]);
+  // console.log(`${poll["questions_uid"]}. ${question_desc}`); // == polls[idx]
   let answer_uids = poll["answer_uids"];
   answer_uids.forEach((answer_uid, index) => {
     // answers
-    console.log(`(${index + 1}) ${getAnswerByUid(answer_uid)}`);
+    // console.log(`${index + 1}. ${getAnswerByUid(answer_uid)}`);
   });
+}
+
+// Event handlers
+// Next 클릭 시 순서 있게 설문 표시
+// 대상 변수는 polls
+let queryNext = document.querySelector("#next");
+queryNext.addEventListener("click", setPollContent);
+
+let index = 0;
+function setPollContent() {
+  if (index === polls.length) {
+    alert("마지막 페이지입니다.");
+    return;
+  } else {
+    let queryContent = document.querySelector("#poll-contents");
+    // polls[0]["questions_uid"]; // 설문 문항
+    // polls[0]["answer_uids"]; // 설문 답항 묶음
+    // 1. 매장 상태가 좋은가요 ?
+    //  (1) 예
+    //  (2) 아니다.
+    // console.log(getQuestionByUid(polls[index]["questions_uid"]));
+    let desc = `<div>${index + 1}. ${getQuestionByUid(
+      polls[index]["questions_uid"]
+    )}</div>`;
+    polls[index]["answer_uids"].forEach((answer_uid, index) => {
+      // answers
+      // console.log(`${index + 1}. ${getAnswerByUid(answer_uid)}`);
+      desc =
+        desc +
+        `<div><input type="radio" name="examples" id=${
+          polls[index]["questions_uid"]
+        }></input> (${index + 1}) ${getAnswerByUid(answer_uid)}</div>`;
+    });
+    queryContent.innerHTML = desc;
+    index++;
+  }
+}
+
+// Event handlers
+// Prev 클릭 시 순서 있게 설문 표시
+let queryPrev = document.querySelector("#prev");
+queryPrev.addEventListener("click", setPollContentPrev);
+
+function setPollContentPrev() {
+  if (index === 0) {
+    alert("첫 페이지입니다.");
+    return;
+  } else {
+    index--;
+    let queryContent = document.querySelector("#poll-contents");
+    let desc = `<div>${index + 1}. ${getQuestionByUid(
+      polls[index]["questions_uid"]
+    )}</div>`;
+    polls[index]["answer_uids"].forEach((answer_uid, index) => {
+      desc =
+        desc +
+        `<div><input type="radio" name="examples" id=${
+          polls[index]["questions_uid"]
+        }></input> <label for="radio">(${index + 1}) ${getAnswerByUid(
+          answer_uid
+        )}</label></div>`;
+    });
+    queryContent.innerHTML = desc;
+  }
 }

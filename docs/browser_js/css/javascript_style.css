@@ -1,0 +1,42 @@
+/* * {
+  border: 1px solid gray;
+} */
+.container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  margin: 8px;
+  border: 1px solid gray;
+}
+.img {
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+}
+.title {
+  color: rgb(220, 20, 60);
+  background-color: rgb(245, 245, 245);
+  width: 120px;
+  margin: auto;
+  margin-top: 10px;
+}
+.reset {
+  margin: auto;
+  margin-top: 10px;
+}
+.btn {
+  width: 180px;
+  height: 40px;
+  background-color: rgb(4, 170, 109);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin: auto;
+  margin-bottom: 10px;
+  border: 0;
+  border-radius: 10%;
+}

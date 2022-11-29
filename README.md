@@ -17,3 +17,5 @@
 | 반복문   | 구구단    | [javascript](https://www.acmicpc.net/source/51922452) | 입력받은 값으로 구구단 출력하기                                 |
 | 반복문   | 총합      | [javascript](https://www.acmicpc.net/source/52002802) | 영수증 총합이 맞는 지 틀렸는지 출력하기                         |
 | 반복문   | 덧셈      | [javascript](https://www.acmicpc.net/source/52200348) | 입력한 수를 입력한 수와 동일하게 나올때까지 각 자리 수를 더하기 |
+| 기본수학 | 수학      | [javascript](https://www.acmicpc.net/source/52215604) | 손익분기점 구하기                                               |
+| 기본수학 | 곱셈      | [javascript](https://www.acmicpc.net/source/52216444) | 빠져나가는 벌집의 수 구하기                                     |

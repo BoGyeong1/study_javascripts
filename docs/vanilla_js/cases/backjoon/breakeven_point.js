@@ -13,10 +13,45 @@
 // 노트북 가격과 노트북 갯수를 곱하여 총 수입을 구한다.
 
 // -주요 단어 영문 이름 선정
-
+// 입력 - input
+// 출력 - output
+// 고정 비용 -fixedCost
+// 가변 비용 - variableCost
+// 노트북 가격 - price
+// 총 비용 -total
+// 손익분기점-breakEvenPoint
 // -테스트 케이스
-
+// 1000 70 170 -> 11
+// 3 2 1 -> -1
 // -프로그래밍 순서
+// 입력
+const fs = require("fs");
+
+const filepath =
+  process.platform === "linux" ? "/dev/stdin" : "docs/vanilla_js/input.txt";
+let inputs = fs.readFileSync(filepath).toString().trim().split(" ");
+
+// 입력받은 수 각각 담아두기
+const fixedCost = inputs[0];
+const variableCost = inputs[1];
+const price = inputs[2];
+
+// 이익 구하기
+// 노트북 가격에서 가변비용을 뺀 값을 고정 비용에서 나누기
+// let breakEvenPoint = (fixedCost, price, variableCost) => {
+let answer = Math.floor(fixedCost / (price - variableCost)) + 1;
+//   return answer;
+// };
+
+// 출력
+if (price - variableCost <= 0) {
+  answer = -1;
+} else {
+  answer;
+}
+
+console.log(answer);
 
 // -try-on
 // -실패 시 원인 기록
+//function을 쓰면 오류난다..ㅎ; 그냥.. 이문제는 패스..

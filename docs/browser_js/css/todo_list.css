@@ -1,0 +1,53 @@
+/* * {
+  border: 1px solid gray;
+} */
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  padding: 30px;
+  color: white;
+  font-weight: bold;
+  background-color: rgb(153, 156, 196);
+}
+.input {
+  width: 85%;
+  height: 50px;
+  margin: 10px;
+  border: #ccc 2px solid;
+  border-radius: 5px;
+  font-size: 1.6rem;
+}
+.AddBtn {
+  width: 130px;
+  height: 50px;
+  cursor: pointer;
+  background-color: rgb(191, 180, 218);
+  border: 0px;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.inputbox {
+  display: flex;
+  justify-content: center;
+  border: #ccc 2px solid;
+  border-radius: 5px;
+}
+.inputtext {
+  font-size: 1.6rem;
+  width: 95%;
+  margin: 10px;
+  padding-left: 0%;
+}
+#heart {
+  color: rgb(238, 109, 143);
+  font-size: 2rem;
+  margin: 10px;
+}
+#delete {
+  font-size: 2rem;
+  margin: 10px;
+  color: rgb(95, 94, 97);
+}

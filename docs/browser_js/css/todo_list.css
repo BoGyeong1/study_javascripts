@@ -34,6 +34,7 @@
   justify-content: center;
   border: #ccc 2px solid;
   border-radius: 5px;
+  margin: 3px;
 }
 .inputtext {
   font-size: 1.6rem;

@@ -46,9 +46,11 @@
   color: rgb(238, 109, 143);
   font-size: 2rem;
   margin: 10px;
+  cursor: pointer;
 }
 #delete {
   font-size: 2rem;
   margin: 10px;
   color: rgb(95, 94, 97);
+  cursor: pointer;
 }

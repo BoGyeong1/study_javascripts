@@ -23,9 +23,8 @@ let queryItemList = document.querySelector(".item-list");
 
 // //최상위에 이벤트를 주면 하위에 이벤트가 다 걸린다.
 queryItemList.addEventListener("click", (event) => {
-  if (event.target.id != "" && event.target.id != "undefined") {
-    alert(`clicked ${event.target.id} : ${event.target.value}`);
-  }
+  reservId = event.target.id;
+  reservId = " ${} ";
 }); //상위 elment에 Event 설정
 // queryItemList.innerHTML = queryItemList.innerHTML + newItem;
 queryItemList.insertAdjacentHTML("beforeend", newItem);

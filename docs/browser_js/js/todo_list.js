@@ -14,6 +14,7 @@ queryInputTexts.addEventListener("keydown", ({ key, isComposing }) => {
   if (isComposing === "true") {
     return;
   }
+  //event.keycode로 하면 오류남
   if (key == "Enter") {
     newText();
   }
